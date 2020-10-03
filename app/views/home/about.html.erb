@@ -1,9 +1,13 @@
 <header>
   <div class="header-logo">
-    TweetApp
+    <!--トップページへのリンクを追加-->
+    <%= link_to 'TweetApp', '/' %>
   </div>
   <ul class="header-menus">
-    <li>TweetAppとは</li>
+    <li>
+      <!--サービス紹介ページへのリンクを追加-->
+      <%= link_to 'TweetAppとは', '/about' %>
+    </li>
   </ul>
 </header>
 <div class="about-main">
@@ -12,6 +16,5 @@
     SNSサービスです。
     近況やつぶやきを投稿し、他のユーザーと楽しくコミュニケーションできます。
   </p>
-  <!--画像のコードを貼り付けてください-->
   <img class="about-img" src="/tweets.png">
 </div>
