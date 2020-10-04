@@ -5,7 +5,7 @@
         <%= @post.content %>
       </p>
       <div class="post-time">
-        <%= @post.created_at %>
+        <%= @post.created_at.to_s(:datetime_jp) %>
       </div>
     </div>
   </div>
