@@ -13,14 +13,15 @@
       </div>
       <!-- いいね！の表示 -->
       <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-      <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
-        <span class="fa fa-heart like-btn-unlike"></span>
-      <% end  %>
+        <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+          <span class="fa fa-heart like-btn-unlike"></span>
+        <% end  %>
       <% else %>
-      <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
-        <span class="fa fa-heart like-btn"></span>
-      <% end  %>
+        <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+          <span class="fa fa-heart like-btn"></span>
+        <% end  %>
       <% end %>
+      <%= @likes_count %>
       <!-- ログイン中ユーザが投稿者の場合のみ編集、削除リンクを表示する -->
       <% if @user.id == @current_user.id %>
         <div class="post-menus">
