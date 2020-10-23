@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'bcrypt'
 gem 'rails-i18n'
 gem 'pg', '~> 0.19.0', group: :production, require: false
 
