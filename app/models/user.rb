@@ -9,12 +9,14 @@
 #  password_digest :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  account_id      :string(255)
 #
 class User < ApplicationRecord
   has_secure_password
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
+  validates :account_id, presence: true, uniqueness: true
 
   def posts
     return Post.where(user_id: self.id)
