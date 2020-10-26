@@ -11,6 +11,18 @@
             <span class="users-account-id"><%= post.user.account_id %></span>
           </div>
           <%= link_to(post.content, "/posts/#{post.id}") %>
+          <br>
+          <!-- いいね！の表示 -->
+          <% if Like.find_by(user_id: @current_user.id, post_id: post.id) %>
+            <%= link_to("/likes/#{post.id}/destroy", {method: "post"}) do %>
+              <span class="fa fa-heart like-btn-unlike"></span>
+            <% end %>
+          <% else %>
+            <%= link_to("/likes/#{post.id}/create", {method: "post"}) do %>
+              <span class="fa fa-heart like-btn"></span>
+            <% end %>
+          <% end %>
+          <%= Like.where(post_id: post.id).count %>
         </div>
       </div>
     <% end %>
