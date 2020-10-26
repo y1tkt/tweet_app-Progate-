@@ -1,3 +1,8 @@
+/* users ================================ */
+ .users-account-id {
+  color: #8899a6;
+ }
+
 /* users/index ================================ */
 .users-heading {
   font-weight: 300;
@@ -44,6 +49,10 @@
   vertical-align: middle;
 }
 
+.user-right span {
+  font-size: 13px;
+}
+
 /* users/show ================================ */
 .user-show {
   text-align: center;
@@ -69,6 +78,7 @@
 }
 
 .user p {
+  color: #8899a6;
   font-size: 13px;
   margin-bottom: 15px;
 }

@@ -36,8 +36,10 @@ class UsersController < ApplicationController
     end
     @user = User.new(
       name: params[:name],
+      account_id: '@'+params[:account_id],
       email: params[:email],
       password: params[:password],
+      password_confirmation: params[:password_confirmation],
       image_name: image_name
     )
     if @user.save

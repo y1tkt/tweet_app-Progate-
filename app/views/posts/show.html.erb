@@ -4,6 +4,7 @@
       <div class="post-user-name">
         <img src="<%= "/user_images/#{@user.image_name}" %>">
         <%= link_to @user.name, "/users/#{@user.id}" %>
+        <span class="users-account-id"><%= @user.account_id %></span>
       </div>
       <p>
         <%= @post.content %>
