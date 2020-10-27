@@ -10,18 +10,18 @@
         <% end %>
         <%= form_tag("/users/create") do %>
           <p>ユーザー名</p>
-          <input name="name" value="<%= @user.name %>">
+          <input name="name" value="<%= @user.name %>" placeholder="つぶやき太郎">
           <p>アカウントID</p>
           <% if @user.account_id %>
             <% @user.account_id.delete!("@") %>
           <% end %>
-          <input name="account_id" value="<%= @user.account_id %>">
+          <input name="account_id" value="<%= @user.account_id %>" placeholder="tsubuyaki_Taro">
           <p>メールアドレス</p>
-          <input name="email" value="<%= @user.email %>">
+          <input name="email" value="<%= @user.email %>" placeholder="tsubuyaki@sample.jp">
           <p>パスワード</p>
-          <input type="password" name="password">
+          <input type="password" name="password" placeholder="more than 8 characters">
           <p>パスワード（確認）</p>
-          <input type="password" name="password_confirmation">
+          <input type="password" name="password_confirmation" placeholder="more than 8 characters">
           <input type="submit" value="新規登録">
         <% end %>
       </div>
