@@ -13,7 +13,7 @@
           <input name="name" value="<%= @user.name %>" placeholder="つぶやき太郎">
           <p>アカウントID</p>
           <% if @user.account_id %>
-            <% @user.account_id.delete!("@") %>
+            <% @user.account_id.delete!('@') %>
           <% end %>
           <input name="account_id" value="<%= @user.account_id %>" placeholder="tsubuyaki_Taro">
           <p>メールアドレス</p>
