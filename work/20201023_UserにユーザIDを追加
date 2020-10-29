@@ -1,2 +1,5 @@
 ・Usersテーブルにaccount_idカラムを追加
   → presence: true
+
+・account_id：'@'+[a-zA-Z0-9_]
+  → フォームで@から入力させる。

@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     end
     @user = User.new(
       name: params[:name],
-      account_id: '@'+params[:account_id],
+      account_id: params[:account_id],
       email: params[:email],
       password: params[:password],
       password_confirmation: params[:password_confirmation],
@@ -78,18 +78,14 @@ class UsersController < ApplicationController
   end
 
   def login
-    @account_id = '@'+params[:account_id]
-    @account_id.slice!(0)
-    if params[:account_id].slice(0) == '@'
-      params[:account_id].slice!(0)
-    end
-    @user = User.find_by(account_id: '@'+params[:account_id])
+    @user = User.find_by(account_id: params[:account_id])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
       redirect_to "/posts/index"
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
+      @account_id = params[:account_id]
       render("users/login_form")
     end
   end
