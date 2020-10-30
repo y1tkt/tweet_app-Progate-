@@ -26,10 +26,11 @@ class User < ApplicationRecord
     length: { maximum: 16 },
     format: {
       with: /\A@\w+\z/,
-      message: 'は英数字で入力してください。使える記号はアンダースコア(_)のみです。'
+      message: 'は@からはじめ、半角英数字またはアンダースコア(_)で入力してください。'
     }
   validates :password,
-    length: { minimum: 8 }
+    length: { minimum: 8 },
+    on: :create
 
   def posts
     return Post.where(user_id: self.id)
