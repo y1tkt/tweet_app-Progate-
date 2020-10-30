@@ -29,7 +29,8 @@ class User < ApplicationRecord
       message: 'は@からはじめ、半角英数字またはアンダースコア(_)で入力してください。'
     }
   validates :password,
-    length: { minimum: 8 }
+    length: { minimum: 8 },
+    on: :create
 
   def posts
     return Post.where(user_id: self.id)
