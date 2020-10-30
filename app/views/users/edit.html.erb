@@ -11,6 +11,8 @@
         <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
           <p>ユーザー名</p>
           <input name="name" value="<%= @user.name %>" placeholder="つぶやき太郎">
+          <p>アカウントID</p>
+          <input name="account_id" value="<%= @user.account_id %>" placeholder="@tsubuyaki_Taro">
           <p>画像</p>
           <input name="image" type="file">
           <p>メールアドレス</p>
