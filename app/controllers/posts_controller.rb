@@ -17,10 +17,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(
-      content: params[:content],
-      user_id: @current_user.id
-    )
+    @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "投稿を作成しました"
       redirect_to("/posts/index")
@@ -57,5 +54,11 @@ class PostsController < ApplicationController
       flash[:notice] = "権限がありません"
       redirect_to("/posts/index")
     end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:content).merge(user_id: @current_user.id)
   end
 end

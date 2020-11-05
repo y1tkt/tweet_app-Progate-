@@ -1,7 +1,7 @@
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
-    <%= form_tag("/posts/create") do %>
+    <%= form_for @post, url: posts_create_path do |f| %>
       <div class="form">
         <div class="form-body">
           <% @post.errors.full_messages.each do |message| %>
@@ -9,7 +9,7 @@
               <%= message %>
             </div>
           <% end %>
-          <textarea name="content"><%= @post.content %></textarea>
+          <%= f.text_area :content, value: @post.content, placeholder: '140字以上' %>
           <input type="submit" value="投稿">
         </div>
       </div>
