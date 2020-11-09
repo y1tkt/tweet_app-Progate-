@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bcrypt'
 gem 'rails-i18n'
+gem 'ransack'
 gem 'pg', '~> 0.19.0', group: :production, require: false
 
 group :development, :test do
