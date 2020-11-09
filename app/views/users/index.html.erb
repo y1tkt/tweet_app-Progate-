@@ -1,6 +1,16 @@
 <div class="main users-index">
   <div class="container">
     <h1 class="users-heading">ユーザ一覧</h1>
+    <!-- 検索フォーム -->
+    <div class="form users-form">
+      <div class="form-body">
+        <%= search_form_for @q, url: users_index_path do |f| %>
+          <%= f.search_field :name_or_account_id_cont %>
+          <%= f.submit "検索" %>
+        <% end %>
+      </div>
+    </div>
+    <!-- ユーザ一覧表示 -->
     <% @users.each do |user| %>
       <div class="users-index-item">
         <div class="user-left">
