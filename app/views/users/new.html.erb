@@ -8,17 +8,17 @@
             <%= message %>
           </div>
         <% end %>
-        <%= form_tag("/users/create") do %>
-          <p>ユーザー名</p>
-          <input name="name" value="<%= @user.name %>" placeholder="つぶやき太郎">
-          <p>アカウントID</p>
-          <input name="account_id" value="<%= @user.account_id %>" placeholder="@tsubuyaki_Taro">
-          <p>メールアドレス</p>
-          <input name="email" value="<%= @user.email %>" placeholder="tsubuyaki@sample.jp">
-          <p>パスワード</p>
-          <input type="password" name="password" placeholder="more than 8 characters">
-          <p>パスワード（確認）</p>
-          <input type="password" name="password_confirmation" placeholder="more than 8 characters">
+        <%= form_for @user, url: users_create_path do |f| %>
+          <%= f.label :name, 'ユーザー名' %>
+          <%= f.text_field :name, value: @user.name, placeholder: 'つぶやき太郎' %>
+          <%= f.label :account_id, 'アカウントID' %>
+          <%= f.text_field :account_id, value: @user.account_id, placeholder: '@tsubuyaki_Taro' %>
+          <%= f.label :email, 'メールアドレス' %>
+          <%= f.text_field :email, value: @user.email, placeholder: 'tsubuyaki@sample.jp' %>
+          <%= f.label :password, 'パスワード' %>
+          <%= f.password_field :password, placeholder: '8字以下' %>
+          <%= f.label :password_confirmation, 'パスワード（確認）' %>
+          <%= f.password_field :password_confirmation, placeholder: '8字以下' %>
           <input type="submit" value="新規登録">
         <% end %>
       </div>
