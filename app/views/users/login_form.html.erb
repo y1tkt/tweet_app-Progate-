@@ -8,11 +8,11 @@
             <%= @error_message %>
           </div>
         <% end %>
-        <%= form_tag("/login") do %>
-          <p>アカウントID</p>
-          <input name="account_id" value="<%= @account_id %>" placeholder="@tsubuyaki_Taro">
-          <p>パスワード</p>
-          <input type="password" name="password" placeholder="more than 8 characters">
+        <%= form_for(:session, url: '/login') do |f| %>
+          <%= f.label :account_id, 'アカウントID' %>
+          <%= f.text_field :account_id, value: @account_id, placeholder: '@tsubuyaki_Taro' %>
+          <%= f.label :password, 'パスワード' %>
+          <%= f.password_field :password, placeholder: '8字以下' %>
           <input type="submit" value="ログイン">
         <% end %>
       </div>
